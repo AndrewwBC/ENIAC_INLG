@@ -1,0 +1,42 @@
+<!-- SLIDE 8 — RESULTADOS -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Resultados</div>
+    <h2 class="heading" data-asset="heading">Macro F1 no MINA-BR: <span class="em">0,915</span> com dados do LLM</h2>
+    <div class="body">
+    <figure class="chart" data-asset="chart-results">
+      <canvas data-chart width="1136" height="380"></canvas>
+      <script type="application/json">
+      {
+        "type": "bar",
+        "data": {
+          "labels": ["NB-Bernoulli (BoW) †", "Random Forest (BoW) †", "SVM (TF-IDF) †", "BERT †", "SVM (TF-IDF)", "BERTimbau", "SMOTE + SVM (TF-IDF)", "BERTimbau + LLM"],
+          "datasets": [{
+            "label": "Macro F1",
+            "data": [0.39, 0.42, 0.56, 0.56, 0.690, 0.737, 0.800, 0.915],
+            "backgroundColor": ["#9FB4C8", "#9FB4C8", "#9FB4C8", "#9FB4C8", "#B5DCF1", "#B5DCF1", "#B5DCF1", "#00408F"],
+            "maxBarThickness": 30
+          }]
+        },
+        "options": {
+          "indexAxis": "y",
+          "locale": "pt-BR",
+          "layout": { "padding": { "right": 72 } },
+          "scales": {
+            "x": { "min": 0, "max": 1, "ticks": { "stepSize": 0.2 } },
+            "y": { "ticks": { "font": { "size": 14 } } }
+          },
+          "plugins": { "vlabels": { "display": true, "size": 14, "texts": ["0,39", "0,42", "0,56", "0,56", "0,690", "0,737 ± 0,017", "0,800", "0,915 ± 0,008"] } }
+        }
+      }
+      </script>
+      <figcaption>† Baselines publicados por Plath et al. (2022). Em azul-claro, nossos baselines. BERTimbau: média ± desvio nos folds externos do nested CV.</figcaption>
+    </figure>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">LLM uncensored para aumento de dados no MINA-BR · ENIAC 2026</span>
+    <span class="f-page"><b>8</b> / 14</span>
+  </div>
+</section>

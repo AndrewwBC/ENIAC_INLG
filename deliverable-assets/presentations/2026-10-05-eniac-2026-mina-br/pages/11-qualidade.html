@@ -1,0 +1,53 @@
+<!-- SLIDE 11 — QUALIDADE DOS DADOS -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Dados sintéticos</div>
+    <h2 class="heading" data-asset="heading">O modelo generaliza, <span class="em">não copia</span> os exemplos</h2>
+    <div class="body">
+    <div class="cols" style="grid-template-columns: 34fr 66fr; align-items:center;">
+      <div data-asset="stats" style="display:flex; flex-direction:column; gap:36px;">
+        <div class="stat" style="text-align:left;">
+          <div class="s-label">Type-Token Ratio médio</div>
+          <div class="s-value">0,974</div>
+          <div class="s-note">Alta diversidade lexical dentro de cada instância.</div>
+        </div>
+        <div class="stat" style="text-align:left;">
+          <div class="s-label">Jaccard com os exemplos do prompt</div>
+          <div class="s-value">0,043</div>
+          <div class="s-note">Sobreposição quase nula com o few-shot.</div>
+        </div>
+      </div>
+      <figure class="chart" data-asset="chart-words">
+        <canvas data-chart width="700" height="360"></canvas>
+        <script type="application/json">
+        {
+          "type": "bar",
+          "data": {
+            "labels": ["mal", "mulher", "sabe", "sempre", "sem", "chata", "deve", "vida", "você", "kkkk"],
+            "datasets": [{
+              "label": "Frequência",
+              "data": [464, 377, 304, 244, 216, 201, 197, 196, 177, 151],
+              "backgroundColor": ["#00408F", "#F7A600", "#00408F", "#00408F", "#00408F", "#00408F", "#00408F", "#00408F", "#00408F", "#00408F"],
+              "maxBarThickness": 22
+            }]
+          },
+          "options": {
+            "indexAxis": "y",
+            "locale": "pt-BR",
+            "layout": { "padding": { "right": 44 } },
+            "scales": { "x": { "min": 0, "max": 500 }, "y": { "ticks": { "font": { "size": 14 } } } },
+            "plugins": { "vlabels": { "display": true, "size": 13 } }
+          }
+        }
+        </script>
+        <figcaption>Top-10 palavras da classe ódio no dataset aumentado. “mulher” (laranja) também lidera a classe não ódio (331).</figcaption>
+      </figure>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">LLM uncensored para aumento de dados no MINA-BR · ENIAC 2026</span>
+    <span class="f-page"><b>11</b> / 14</span>
+  </div>
+</section>

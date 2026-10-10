@@ -1,0 +1,70 @@
+<!-- SLIDE 5 — PIPELINE -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Método</div>
+    <h2 class="heading" data-asset="heading">Pipeline: gerar ódio sintético e <span class="em">balancear</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="290" viewBox="0 0 1136 290">
+      <defs>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+        <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+      <!-- lane labels -->
+      <text class="d-label" x="0" y="22" font-weight="600" letter-spacing="1.5">GERAÇÃO DE DADOS</text>
+      <line x1="0" y1="34" x2="664" y2="34" stroke="#B5DCF1" stroke-width="3"/>
+      <text class="d-label" x="708" y="22" font-weight="600" letter-spacing="1.5">CLASSIFICAÇÃO</text>
+      <line x1="708" y1="34" x2="1136" y2="34" stroke="#00408F" stroke-width="3"/>
+
+      <!-- nodes: w=192 gap=44 -->
+      <rect class="d-node-tile" x="0" y="80" width="192" height="116"/>
+      <text x="96" y="128" text-anchor="middle" font-size="17" font-weight="600">MINA-BR</text>
+      <text class="d-label" x="96" y="150" text-anchor="middle">rotulada · treino</text>
+      <text class="d-label" x="96" y="170" text-anchor="middle">≈ 9:1</text>
+
+      <rect class="d-node" x="236" y="80" width="192" height="116"/>
+      <text x="332" y="128" text-anchor="middle" font-size="17" font-weight="600">Few-shot</text>
+      <text x="332" y="150" text-anchor="middle" font-size="17" font-weight="600">dinâmico</text>
+      <text class="d-label" x="332" y="172" text-anchor="middle">5 exemplos de ódio</text>
+
+      <rect class="d-node-black" x="472" y="80" width="192" height="116"/>
+      <text class="on-dark" x="568" y="124" text-anchor="middle" font-size="17" font-weight="600">Qwen2.5-14B</text>
+      <text class="on-dark" x="568" y="146" text-anchor="middle" font-size="17" font-weight="600">abliterated</text>
+      <text class="d-label" x="568" y="170" text-anchor="middle" style="fill:#B5DCF1">servido com vLLM</text>
+
+      <rect class="d-node-tile" x="708" y="80" width="192" height="116"/>
+      <text x="804" y="128" text-anchor="middle" font-size="17" font-weight="600">Dataset</text>
+      <text x="804" y="150" text-anchor="middle" font-size="17" font-weight="600">balanceado</text>
+      <text class="d-label" x="804" y="172" text-anchor="middle">1.751 × 1.747</text>
+
+      <rect class="d-node" x="945" y="80" width="189" height="116" style="stroke:#00408F; stroke-width:2.5"/>
+      <text x="1040" y="128" text-anchor="middle" font-size="17" font-weight="600" style="fill:#00408F">BERTimbau</text>
+      <text class="d-label" x="1040" y="150" text-anchor="middle">nested CV</text>
+      <text class="d-label" x="1040" y="170" text-anchor="middle">+ Optuna</text>
+
+      <!-- edges -->
+      <line class="d-edge" x1="192" y1="138" x2="228" y2="138" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="428" y1="138" x2="464" y2="138" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="664" y1="138" x2="700" y2="138" marker-end="url(#arrow-blue)" style="stroke:#00408F"/>
+      <line class="d-edge" x1="900" y1="138" x2="936" y2="138" marker-end="url(#arrow-ink)"/>
+      <!-- real data joins the balanced set -->
+      <path class="d-edge-dash" d="M96 196 L96 256 Q96 268 108 268 L792 268 Q804 268 804 256 L804 204" marker-end="url(#arrow-ink)"/>
+      <rect x="392" y="256" width="116" height="24" fill="#fff"/>
+      <text class="d-label" x="450" y="273" text-anchor="middle">dados reais</text>
+      <text class="d-label" x="686" y="126" text-anchor="middle" style="fill:#00408F; font-weight:600">ódio</text>
+      <!-- output -->
+      <text class="d-label" x="1040" y="236" text-anchor="middle">macro F1 no</text>
+      <text class="d-label" x="1040" y="254" text-anchor="middle">teste held-out</text>
+      <line class="d-edge" x1="1040" y1="196" x2="1040" y2="218" style="stroke:#00408F"/>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">LLM uncensored para aumento de dados no MINA-BR · ENIAC 2026</span>
+    <span class="f-page"><b>5</b> / 14</span>
+  </div>
+</section>

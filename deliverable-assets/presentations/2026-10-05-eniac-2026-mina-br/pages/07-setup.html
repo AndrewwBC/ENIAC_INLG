@@ -1,0 +1,28 @@
+<!-- SLIDE 7 — SETUP -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Avaliação</div>
+    <h2 class="heading" data-asset="heading">Cada pipeline na sua <span class="em">melhor configuração</span></h2>
+    <div class="body">
+    <table class="table" data-asset="table">
+      <thead>
+        <tr><th>Pipeline</th><th>Representação</th><th>Balanceamento</th><th>Seleção de hiperparâmetros</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SVM</td><td>TF-IDF</td><td>—</td><td>Grid search, 5-fold estratificado</td></tr>
+        <tr><td>SMOTE + SVM</td><td>TF-IDF</td><td>SMOTE no espaço vetorial</td><td>Grid search, 5-fold estratificado</td></tr>
+        <tr><td>BERTimbau</td><td>Contextual</td><td>—</td><td>Nested CV + Optuna</td></tr>
+        <tr><td><b>BERTimbau + LLM</b></td><td>Contextual</td><td class="stat-cell">Texto gerado pelo LLM</td><td>Nested CV + Optuna</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" data-asset="callout" style="margin-top:36px;">
+      <b>BERTimbau Base:</b> 12 camadas, 768 dim., até 512 tokens, cabeça linear sobre [CLS], AdamW. Nested CV separa a escolha de hiperparâmetros da avaliação final.
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">LLM uncensored para aumento de dados no MINA-BR · ENIAC 2026</span>
+    <span class="f-page"><b>7</b> / 14</span>
+  </div>
+</section>

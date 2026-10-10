@@ -1,0 +1,409 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "size": {
+        "width": 1600,
+        "height": 2263
+      },
+      "boxes": [
+        {
+          "id": "title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 48,
+            "width": 1169,
+            "height": 188
+          },
+          "element": {
+            "x": 72,
+            "y": 48,
+            "width": 1169,
+            "height": 188
+          },
+          "trimmed": false
+        },
+        {
+          "id": "rule",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 260,
+            "width": 1169,
+            "height": 6
+          },
+          "element": {
+            "x": 72,
+            "y": 260,
+            "width": 1169,
+            "height": 6
+          },
+          "trimmed": false
+        },
+        {
+          "id": "authors",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 284,
+            "width": 1169,
+            "height": 40
+          },
+          "element": {
+            "x": 72,
+            "y": 284,
+            "width": 1169,
+            "height": 40
+          },
+          "trimmed": false
+        },
+        {
+          "id": "affil",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 330,
+            "width": 1169,
+            "height": 30
+          },
+          "element": {
+            "x": 72,
+            "y": 330,
+            "width": 1169,
+            "height": 30
+          },
+          "trimmed": false
+        },
+        {
+          "id": "marca",
+          "profile": "cutout",
+          "content": {
+            "x": 1339,
+            "y": 73,
+            "width": 155,
+            "height": 69
+          },
+          "element": {
+            "x": 1305,
+            "y": 48,
+            "width": 223,
+            "height": 120
+          },
+          "trimmed": true
+        },
+        {
+          "id": "chip",
+          "profile": null,
+          "content": {
+            "x": 1383,
+            "y": 319,
+            "width": 145,
+            "height": 41
+          },
+          "element": {
+            "x": 1383,
+            "y": 319,
+            "width": 145,
+            "height": 41
+          },
+          "trimmed": false
+        },
+        {
+          "id": "stats",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 424,
+            "width": 1456,
+            "height": 143
+          },
+          "element": {
+            "x": 72,
+            "y": 424,
+            "width": 1456,
+            "height": 143
+          },
+          "trimmed": false
+        },
+        {
+          "id": "h-motivation",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 597,
+            "width": 712,
+            "height": 52
+          },
+          "element": {
+            "x": 72,
+            "y": 597,
+            "width": 712,
+            "height": 52
+          },
+          "trimmed": false
+        },
+        {
+          "id": "p-motivation",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 667,
+            "width": 712,
+            "height": 89
+          },
+          "element": {
+            "x": 72,
+            "y": 667,
+            "width": 712,
+            "height": 89
+          },
+          "trimmed": false
+        },
+        {
+          "id": "absa-example",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 773,
+            "width": 712,
+            "height": 175
+          },
+          "element": {
+            "x": 72,
+            "y": 773,
+            "width": 712,
+            "height": 175
+          },
+          "trimmed": false
+        },
+        {
+          "id": "rq",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 966,
+            "width": 712,
+            "height": 139
+          },
+          "element": {
+            "x": 72,
+            "y": 966,
+            "width": 712,
+            "height": 139
+          },
+          "trimmed": false
+        },
+        {
+          "id": "h-method",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 1135,
+            "width": 712,
+            "height": 52
+          },
+          "element": {
+            "x": 72,
+            "y": 1135,
+            "width": 712,
+            "height": 52
+          },
+          "trimmed": false
+        },
+        {
+          "id": "pipeline",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 1203,
+            "width": 712,
+            "height": 328
+          },
+          "element": {
+            "x": 72,
+            "y": 1203,
+            "width": 712,
+            "height": 328
+          },
+          "trimmed": false
+        },
+        {
+          "id": "formula",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 1549,
+            "width": 712,
+            "height": 115
+          },
+          "element": {
+            "x": 72,
+            "y": 1549,
+            "width": 712,
+            "height": 115
+          },
+          "trimmed": false
+        },
+        {
+          "id": "table-1",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 1682,
+            "width": 712,
+            "height": 179
+          },
+          "element": {
+            "x": 72,
+            "y": 1682,
+            "width": 712,
+            "height": 179
+          },
+          "trimmed": false
+        },
+        {
+          "id": "h-results",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 597,
+            "width": 712,
+            "height": 52
+          },
+          "element": {
+            "x": 848,
+            "y": 597,
+            "width": 712,
+            "height": 52
+          },
+          "trimmed": false
+        },
+        {
+          "id": "p-results",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 667,
+            "width": 712,
+            "height": 89
+          },
+          "element": {
+            "x": 848,
+            "y": 667,
+            "width": 712,
+            "height": 89
+          },
+          "trimmed": false
+        },
+        {
+          "id": "chart-results",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 773,
+            "width": 712,
+            "height": 506
+          },
+          "element": {
+            "x": 848,
+            "y": 773,
+            "width": 712,
+            "height": 506
+          },
+          "trimmed": false
+        },
+        {
+          "id": "h-why",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 1309,
+            "width": 712,
+            "height": 52
+          },
+          "element": {
+            "x": 848,
+            "y": 1309,
+            "width": 712,
+            "height": 52
+          },
+          "trimmed": false
+        },
+        {
+          "id": "table-3",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 1379,
+            "width": 712,
+            "height": 251
+          },
+          "element": {
+            "x": 848,
+            "y": 1379,
+            "width": 712,
+            "height": 251
+          },
+          "trimmed": false
+        },
+        {
+          "id": "chart-drop",
+          "profile": null,
+          "content": {
+            "x": 848,
+            "y": 1648,
+            "width": 712,
+            "height": 218
+          },
+          "element": {
+            "x": 848,
+            "y": 1648,
+            "width": 712,
+            "height": 218
+          },
+          "trimmed": false
+        },
+        {
+          "id": "takeaway",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 1898,
+            "width": 1456,
+            "height": 237
+          },
+          "element": {
+            "x": 72,
+            "y": 1898,
+            "width": 1456,
+            "height": 237
+          },
+          "trimmed": false
+        },
+        {
+          "id": "footer",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 2161,
+            "width": 1456,
+            "height": 74
+          },
+          "element": {
+            "x": 72,
+            "y": 2161,
+            "width": 1456,
+            "height": 74
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    }
+  ]
+}
