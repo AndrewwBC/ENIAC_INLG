@@ -9,9 +9,57 @@ O principal impeditivo é o fato de que os modelos são alinhados para que tenha
 um comportamento adequado diante dos usuários. Sendo assim, tais modelos
 se recusam a gerar dados que simulem discurso de ódio.
 
-Para mitigar este problema, exploramos LLMs sem censura para a geração dos dados.
+Para mitigar este problema, exploramos LLMs sem censura para aumentar o dataset MINA-BR.
 
 # Slide 3
 O dataset original MINA-BR é desbalanceado. A razão entre as classes é de 
 nove pra um, 9:1, fazendo com que o modelo tenha exposição a poucos dados 
-rotulados como ódio.
+rotulados como ódio. Parte deste dataset serviu como exemplos para o modelo sem censura.
+
+# Slide 4
+O modelo sem censura ou abliterado passa por um processo
+de abliteração que retira a componente de censura das camadas internas. Apesar do processo alterar o modelo, a literatura mostra que a performance do modelo se mantém praticamente igual ao original em alguns benchmarks.
+
+# Slide 5
+Nós empregados o modelo apenas nas amostras rotuladas como ódio. Sendo assim, geramos 5 datasets balanceados através de amostragens diferentes entre 5 seeds.
+
+Cada dataset foi utilizado para treinar um modelo BERTimbau com uma head de classificação.
+
+# Slide 6 
+De maneira mais detalhada. Cada balanceamento contou com a aplicação da técnica de few-shot, que consiste em dar exemplos ao LLM. Cada dataset foi gerado com um único conjunto de exemplos. Ou seja, tivemos 5 conjuntos diferentes, um por seed.
+
+# Slide 7 
+Os dados gerados foram utilizados em algoritmos como SVM e SMOTE para que pudessemos formalizar um baseline no contexto dos novos dados.
+
+Ao BERTimbau coube o uso de Nested Cross Validation para encontrarmos os melhores hiper-parâmetros utilizando Optuna.
+
+# Slide 8
+A nossa abordagem, desde o SVM com TF-IDF, até o BERTimbau, superam os baselines originais. Conseguimos um macro F1 de 0,915. Este valor variou pouco dado o desvio padrão inexpressivo nas cinco seeds.
+
+# Slide 9
+
+# Slide 10
+O balanceamento só terá relevância se os dados sintéticos refletirem
+parte da estrutura semântica e sintática dos dados reais. O treino em dados reais e teste nos dados sintéticos evidenciam que os dados gerados conseguiram suprir este requisito.
+
+# Slide 11 
+Para além das métricas dos modelos, analisamos os dados utilizando Type-Token Ratio e Jaccard. 
+O TTR demonstra uma alta diversidade lexical, enquanto que a métrica Jaccard afirma que há sobreposição quase nula com os exemplos, ou seja, o modelo não copiou as informações, apenas se baseou nelas.
+
+Apresentamos no gráfico o top-10 das palavras nas classes de ódio, aumentadas. O gráfico demonstra claramente alta ocorrência de palavras como "mal", "mulher", "sabe" e "sempre". Palavras que aparecem em frases como "mulher mal comida", "mulher mal amada".
+
+# Slide 12
+
+Um aspecto que devemos salientar neste trabalho é que, embora os modelos sem censura estejam disponíveis, defendemos o uso legal e ético destes modelos, tendo em vista que podem ser usados para geração de discurso de ódio de maneira automatizada.
+
+Nossas limitações destacam o uso de apenas um dataset para aumento de dados e a ausência de avaliação humana dos dados gerados, utilizando apenas a performance dos modelos como interpretação qualitativa.
+
+# Slide 13
+
+Concluindo, demonstramos que o modelo sem censura viabilizou o balanceamento do dataset MINA-BR. Superamos os baselines com esta estratégia. Demonstramos que o ganho não vem apenas do volume, mas também da qualidade dos dados mediante métricas como TTR e Jaccard.
+
+Nossos próximos passos: outros datasets, avaliação humana, diferentes estratégias de prompt e a exploração de outros modelos abliterados.
+
+# Slide 14
+
+Obrigado!
