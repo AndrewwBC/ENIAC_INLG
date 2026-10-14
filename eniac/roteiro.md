@@ -21,7 +21,7 @@ O modelo sem censura ou abliterado passa por um processo
 de abliteração que retira a componente de censura das camadas internas. Apesar do processo alterar o modelo, a literatura mostra que a performance do modelo se mantém praticamente igual ao original em alguns benchmarks.
 
 # Slide 5
-Nós empregados o modelo apenas nas amostras rotuladas como ódio. Sendo assim, geramos 5 datasets balanceados através de amostragens diferentes entre 5 seeds.
+Nós empregamos o modelo apenas nas amostras rotuladas como ódio. Sendo assim, geramos 5 datasets balanceados através de amostragens diferentes entre 5 seeds.
 
 Cada dataset foi utilizado para treinar um modelo BERTimbau com uma head de classificação.
 
@@ -29,7 +29,7 @@ Cada dataset foi utilizado para treinar um modelo BERTimbau com uma head de clas
 De maneira mais detalhada. Cada balanceamento contou com a aplicação da técnica de few-shot, que consiste em dar exemplos ao LLM. Cada dataset foi gerado com um único conjunto de exemplos. Ou seja, tivemos 5 conjuntos diferentes, um por seed.
 
 # Slide 7 
-Os dados gerados foram utilizados em algoritmos como SVM e SMOTE para que pudessemos formalizar um baseline no contexto dos novos dados.
+Os dados gerados foram utilizados em algoritmos como SVM e SMOTE para que pudéssemos formalizar um baseline no contexto dos novos dados.
 
 Ao BERTimbau coube o uso de Nested Cross Validation para encontrarmos os melhores hiper-parâmetros utilizando Optuna.
 
@@ -37,6 +37,11 @@ Ao BERTimbau coube o uso de Nested Cross Validation para encontrarmos os melhore
 A nossa abordagem, desde o SVM com TF-IDF, até o BERTimbau, superam os baselines originais. Conseguimos um macro F1 de 0,915. Este valor variou pouco dado o desvio padrão inexpressivo nas cinco seeds.
 
 # Slide 9
+Em números, o ganho foi de 17,8 pontos percentuais sobre o mesmo BERTimbau sem aumento, e de 35,5 pontos sobre o melhor baseline publicado.
+
+Na classe ódio, que é a que nos interessa, o F1 chegou a 0,916, contra 0,583 sem aumento e 0,671 com SMOTE.
+
+Além disso, o desvio padrão caiu de 0,017 para 0,008, menos da metade. Ou seja, o aumento não só melhora a média, como também deixa o modelo mais estável entre as partições.
 
 # Slide 10
 O balanceamento só terá relevância se os dados sintéticos refletirem
