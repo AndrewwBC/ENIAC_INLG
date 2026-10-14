@@ -1,3 +1,10 @@
+# Slide 1
+Boa tarde. Meu nome é Andrew Campos, sou do PPGC da UFPel, e este trabalho foi feito em conjunto com o Ulisses Corrêa e a Larissa de Freitas.
+
+Vamos mostrar como um LLM sem censura pode gerar dados sintéticos para balancear um dataset de discurso de ódio misógino em português brasileiro.
+
+Um aviso: alguns slides contêm linguagem ofensiva, pois esse é o objeto de estudo.
+
 # Slide 2
 No contexto de treinamento de modelos de IA, dados balanceados favorecem uma
 performance mais adequada tendo em vista que o modelo será exposto a uma gama equilibrada
