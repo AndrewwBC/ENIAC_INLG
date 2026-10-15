@@ -15,6 +15,7 @@ Materiais de apresentação dos trabalhos no ENIAC 2026 e no INLG 2026.
 - Paper: [`inlg/INLG.pdf`](inlg/INLG.pdf)
 - Pôster (PDF final): [`deliverable-assets/documents/2026-10-05-inlg-2026-poster/out/deliverable.pdf`](deliverable-assets/documents/2026-10-05-inlg-2026-poster/out/deliverable.pdf)
 - Fonte do pôster (HTML): [`deliverable-assets/documents/2026-10-05-inlg-2026-poster/`](deliverable-assets/documents/2026-10-05-inlg-2026-poster/)
+- Pôster v2 (revisado — limitações, setup de treino, seeds e explicação do "why no gain"): [`deliverable-assets/documents/2026-10-14-inlg-2026-poster-v2/out/deliverable.pdf`](deliverable-assets/documents/2026-10-14-inlg-2026-poster-v2/out/deliverable.pdf)
 
 ## Geração
 
