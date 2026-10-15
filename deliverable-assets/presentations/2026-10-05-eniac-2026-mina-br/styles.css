@@ -175,15 +175,22 @@ h2.heading { font-size: 40px; font-weight: 600; line-height: 1.12; letter-spacin
 /* ---- step flow ----------------------------------------------------------- */
 .steps { display: flex; gap: 28px; align-items: stretch; }
 .step { flex: 1; position: relative; }
-.step .st-num { font-size: 14px; font-weight: 600; color: var(--ufpel-muted); margin-bottom: 12px; }
+.step .st-num { font-size: 14px; line-height: 18px; font-weight: 600; color: var(--ufpel-muted); margin-bottom: 12px; }
 .step .tile { margin-bottom: 16px; }
 .step .st-name { font-size: 19px; font-weight: 600; color: var(--ufpel-blue); margin-bottom: 6px; }
 .step .st-text { font-size: 14.5px; color: var(--ufpel-muted); line-height: 1.5; }
+/* connector from the previous tile's right edge to this tile, at tile-center
+   height (st-num 18px + 12px margin + 42px half-tile = 72px). Steps are equal
+   width, so the previous tile ends at (84px − 100% − 28px gap) from here. */
 .step + .step::before {
-  content: ''; position: absolute; left: -22px; top: 56px;
-  width: 16px; height: 16px;
-  border-top: 2.5px solid var(--ufpel-blue); border-right: 2.5px solid var(--ufpel-blue);
-  transform: rotate(45deg);
+  content: ''; position: absolute; top: 71px;
+  left: calc(70px - 100%); width: calc(100% - 94px); height: 2px;
+  background: var(--ufpel-blue);
+}
+.step + .step::after {
+  content: ''; position: absolute; top: 66px; left: -26px;
+  width: 12px; height: 12px; background: var(--ufpel-blue);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 /* ---- agenda -------------------------------------------------------------- */

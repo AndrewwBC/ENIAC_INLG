@@ -41,37 +41,42 @@ Os dados gerados foram utilizados em algoritmos como SVM e SMOTE para que pudés
 Ao BERTimbau coube o uso de Nested Cross Validation para encontrarmos os melhores hiper-parâmetros utilizando Optuna.
 
 # Slide 8
-A nossa abordagem, desde o SVM com TF-IDF, até o BERTimbau, superam os baselines originais. Conseguimos um macro F1 de 0,915. Este valor variou pouco dado o desvio padrão inexpressivo nas cinco seeds.
+Aqui estão os espaços de busca dos hiper-parâmetros. No BERTimbau, o Optuna buscou a taxa de aprendizado e o weight decay separadamente para o backbone e para a cabeça de classificação, além do dropout da cabeça, do número de épocas, do batch size, do warmup e do tipo de scheduler, linear ou cosseno. Essa busca acontece apenas no loop interno do Nested Cross Validation.
+
+No SVM, o grid search variou o parâmetro de regularização C, o número máximo de features do TF-IDF e o uso de unigramas ou bigramas, sempre escolhendo pelo macro F1.
 
 # Slide 9
-Em números, o ganho foi de 17,8 pontos percentuais sobre o mesmo BERTimbau sem aumento, e de 35,5 pontos sobre o melhor baseline publicado.
+A nossa abordagem, desde o SVM com TF-IDF, até o BERTimbau, superam os baselines originais. Conseguimos um macro F1 de 0,915. Este valor variou pouco dado o desvio padrão inexpressivo nas cinco seeds.
+
+# Slide 10
+Em números, o ganho foi de 17,8 pontos percentuais sobre o mesmo BERTimbau sem aumento.
 
 Na classe ódio, que é a que nos interessa, o F1 chegou a 0,916, contra 0,583 sem aumento e 0,671 com SMOTE.
 
 Além disso, o desvio padrão caiu de 0,017 para 0,008, menos da metade. Ou seja, o aumento não só melhora a média, como também deixa o modelo mais estável entre as partições.
 
-# Slide 10
+# Slide 11
 O balanceamento só terá relevância se os dados sintéticos refletirem
 parte da estrutura semântica e sintática dos dados reais. O treino em dados reais e teste nos dados sintéticos evidenciam que os dados gerados conseguiram suprir este requisito.
 
-# Slide 11 
+# Slide 12 
 Para além das métricas dos modelos, analisamos os dados utilizando Type-Token Ratio e Jaccard. 
 O TTR demonstra uma alta diversidade lexical, enquanto que a métrica Jaccard afirma que há sobreposição quase nula com os exemplos, ou seja, o modelo não copiou as informações, apenas se baseou nelas.
 
 Apresentamos no gráfico o top-10 das palavras nas classes de ódio, aumentadas. O gráfico demonstra claramente alta ocorrência de palavras como "mal", "mulher", "sabe" e "sempre". Palavras que aparecem em frases como "mulher mal comida", "mulher mal amada".
 
-# Slide 12
+# Slide 13
 
 Um aspecto que devemos salientar neste trabalho é que, embora os modelos sem censura estejam disponíveis, defendemos o uso legal e ético destes modelos, tendo em vista que podem ser usados para geração de discurso de ódio de maneira automatizada.
 
 Nossas limitações destacam o uso de apenas um dataset para aumento de dados e a ausência de avaliação humana dos dados gerados, utilizando apenas a performance dos modelos como interpretação qualitativa.
 
-# Slide 13
+# Slide 14
 
 Concluindo, demonstramos que o modelo sem censura viabilizou o balanceamento do dataset MINA-BR. Superamos os baselines com esta estratégia. Demonstramos que o ganho não vem apenas do volume, mas também da qualidade dos dados mediante métricas como TTR e Jaccard.
 
 Nossos próximos passos: outros datasets, avaliação humana, diferentes estratégias de prompt e a exploração de outros modelos abliterados.
 
-# Slide 14
+# Slide 15
 
 Obrigado!

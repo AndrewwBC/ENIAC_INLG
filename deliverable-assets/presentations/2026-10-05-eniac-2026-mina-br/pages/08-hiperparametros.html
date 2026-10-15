@@ -1,0 +1,45 @@
+<!-- SLIDE 8 — HIPERPARÂMETROS -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Avaliação</div>
+    <h2 class="heading" data-asset="heading">Hiperparâmetros: os <span class="em">espaços de busca</span></h2>
+    <div class="body">
+    <div class="cols wide-left" style="gap:40px;">
+      <div>
+        <table class="table" data-asset="table" style="font-variant-numeric: tabular-nums;">
+          <thead>
+            <tr><th>BERTimbau · Optuna</th><th>Backbone</th><th>Cabeça</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>Learning rate</b></td><td>10⁻⁵ a 5·10⁻⁵</td><td>10⁻⁴ a 5·10⁻⁴</td></tr>
+            <tr><td><b>Weight decay</b></td><td>10⁻⁴ a 10⁻²</td><td>10⁻⁴ a 10⁻²</td></tr>
+            <tr><td><b>Dropout</b></td><td>—</td><td>0,1 a 0,3</td></tr>
+            <tr><td><b>Épocas</b></td><td colspan="2">4 a 8</td></tr>
+            <tr><td><b>Batch size</b></td><td colspan="2">8 a 32</td></tr>
+            <tr><td><b>Warmup ratio</b></td><td colspan="2">0,05 a 0,15 · scheduler linear ou cosseno</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px; color:var(--ufpel-muted); margin-top:12px;">Learning rate e weight decay amostrados em escala log. Busca no loop interno do nested CV.</p>
+      </div>
+      <div>
+        <table class="table" data-asset="table-2" style="font-variant-numeric: tabular-nums;">
+          <thead>
+            <tr><th>SVM · grid search</th><th>Valores</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>C</b></td><td>0,1 · 1 · 10</td></tr>
+            <tr><td><b>Máx. features</b></td><td>3.000 · 5.000 · 10.000</td></tr>
+            <tr><td><b>N-gramas</b></td><td>(1,1) · (1,2)</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px; color:var(--ufpel-muted); margin-top:12px;">TF-IDF, com e sem SMOTE. 5-fold estratificado, critério macro F1.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">LLM uncensored para aumento de dados no MINA-BR · ENIAC 2026</span>
+    <span class="f-page"><b>8</b> / 15</span>
+  </div>
+</section>

@@ -12,14 +12,15 @@ Tempo total: 12:00. A coluna "acumulado" mostra onde você deveria estar ao **te
 | 4 | Modelo abliterated | 1:00 | 3:20 |
 | 5 | Pipeline | 1:00 | 4:20 |
 | 6 | Few-shot dinâmico | 1:00 | 5:20 |
-| 7 | Setup de avaliação | 0:50 | 6:10 |
-| 8 | Resultados (gráfico) | 1:10 | 7:20 |
-| 9 | Ganhos e estabilidade | 0:50 | 8:10 |
-| 10 | Não é só balancear | 0:50 | 9:00 |
-| 11 | Qualidade dos dados sintéticos | 1:00 | 10:00 |
-| 12 | Ética e limitações | 0:50 | 10:50 |
-| 13 | Conclusões | 0:50 | 11:40 |
-| 14 | Obrigado | 0:20 | 12:00 |
+| 7 | Setup de avaliação | 0:40 | 6:00 |
+| 8 | Hiperparâmetros | 0:40 | 6:40 |
+| 9 | Resultados (gráfico) | 1:00 | 7:40 |
+| 10 | Ganhos e estabilidade | 0:40 | 8:20 |
+| 11 | Não é só balancear | 0:50 | 9:10 |
+| 12 | Qualidade dos dados sintéticos | 0:50 | 10:00 |
+| 13 | Ética e limitações | 0:50 | 10:50 |
+| 14 | Conclusões | 0:50 | 11:40 |
+| 15 | Obrigado | 0:20 | 12:00 |
 
 ---
 
@@ -63,53 +64,59 @@ Terceiro, na inferência usamos temperature 0,7, top-p 0,8, top-k 20 e presence 
 
 E quarto, repetimos até balancear. A pequena diferença entre 1.751 e 1.747 vem de gerações que estouraram o limite de tamanho.
 
-## 7. Setup de avaliação (0:50)
+## 7. Setup de avaliação (0:40)
 
 Comparamos quatro pipelines. Dois clássicos: SVM com TF-IDF, sem balanceamento e com SMOTE — o SMOTE gera exemplos sintéticos interpolando vetores, não texto. Ambos com grid search e 5-fold estratificado.
 
 E dois com BERTimbau: nos dados originais e nos dados aumentados pelo LLM, ambos com nested CV e Optuna. O nested CV separa a escolha de hiperparâmetros da avaliação final e evita uma estimativa otimista. Cada pipeline foi avaliado na sua configuração mais favorável.
 
-## 8. Resultados (1:10)
+## 8. Hiperparâmetros (0:40)
 
-Este é o resultado principal, em macro F1. Em cinza, os baselines publicados no trabalho original do MINA-BR: o melhor deles chega a 0,56, tanto com SVM quanto com BERT.
+Estes são os espaços de busca. No BERTimbau, o Optuna buscou learning rate e weight decay separadamente para o backbone e para a cabeça de classificação — o backbone com taxas uma ordem de grandeza menores —, além do dropout da cabeça, de 4 a 8 épocas, batch size de 8 a 32, warmup e scheduler linear ou cosseno. Tudo isso só no loop interno do nested CV.
+
+No SVM, o grid search variou o C, o máximo de features do TF-IDF e unigramas ou bigramas, escolhendo pelo macro F1 em 5-fold estratificado.
+
+## 9. Resultados (1:00)
+
+Este é o resultado principal, em macro F1. Em cinza, os baselines publicados no trabalho original do MINA-BR, que chegam a 0,56 com SVM e com BERT.
 
 Em azul-claro, os nossos baselines. Só com SVM nos dados originais já chegamos a 0,690. O BERTimbau sem aumento vai a 0,737, e o SMOTE com SVM chega a 0,800.
 
 E em azul-escuro, o BERTimbau treinado com os dados do LLM: 0,915 de macro F1, com desvio-padrão de 0,008 entre os folds externos.
 
-## 9. Ganhos e estabilidade (0:50)
+## 10. Ganhos e estabilidade (0:40)
 
-Resumindo em números: são 17,8 pontos percentuais acima do mesmo BERTimbau sem aumento, e 35,5 pontos acima do melhor baseline publicado.
+Resumindo em números: são 17,8 pontos percentuais acima do mesmo BERTimbau sem aumento.
 
 Olhando só a classe ódio, que é a que importa, o F1 vai a 0,916, contra 0,583 sem aumento e 0,671 com SMOTE.
 
 E um detalhe que acho importante: o desvio-padrão caiu de 0,017 para 0,008, menos da metade. Ou seja, o aumento não só melhora a média como também deixa o modelo mais estável entre as partições.
 
-## 10. Não é só balancear (0:50)
+## 11. Não é só balancear (0:50)
 
 Mas será que o ganho vem apenas de balancear? A comparação ajuda a separar os efeitos. No trabalho original, BERT empata com SVM em 0,560, então representação contextual sozinha não resolve o desbalanceamento.
 
 O SMOTE, que só balanceia no espaço vetorial, já leva o SVM de 0,690 para 0,800. Então balancear ajuda bastante. Mas quando o balanceamento é feito com texto realista gerado pelo LLM, chegamos a 0,915. A nossa leitura é que a qualidade dos dados gerados é o principal motor da melhora, e não apenas o balanceamento.
 
-## 11. Qualidade dos dados sintéticos (1:00)
+## 12. Qualidade dos dados sintéticos (0:50)
 
 Também quisemos saber se o modelo estava só copiando os exemplos do prompt. Medimos duas coisas. O Type-Token Ratio médio é 0,974, ou seja, há alta diversidade lexical dentro de cada instância. E a similaridade de Jaccard entre cada comentário gerado e os seus exemplos de few-shot é só 0,043. O modelo generaliza a partir das demonstrações em vez de reproduzi-las.
 
 No gráfico, as palavras mais frequentes da classe ódio. Aparecem colocações pejorativas como "mal amada" e "mal comida" — por isso "mal", "comida" e "amada" no topo. Um detalhe interessante: "mulher", em laranja, também é a palavra mais frequente na classe não ódio. Então a palavra sozinha não discrimina nada; o que define o ódio é o contexto em volta. Essa consistência de padrões provavelmente explica o desvio-padrão baixo.
 
-## 12. Ética e limitações (0:50)
+## 13. Ética e limitações (0:50)
 
 Precisamos falar de ética. A mesma técnica que permite esta pesquisa pode ser usada para gerar ódio em escala. Defendemos o uso restrito a contextos de pesquisa e com salvaguardas, e por isso não distribuímos os dados gerados.
 
 Há duas limitações principais. Avaliamos em um único dataset, então a generalização para corpora como HateBR e ToLD-BR ainda está em aberto. E não fizemos avaliação humana dos textos sintéticos — comparar textos gerados e reais com anotadores humanos fortaleceria muito o trabalho.
 
-## 13. Conclusões (0:50)
+## 14. Conclusões (0:50)
 
-Para fechar: um LLM abliterated com few-shot dinâmico conseguiu balancear o MINA-BR com texto diverso e pouco copiado. O BERTimbau treinado nesses dados chegou a 0,915 de macro F1, 35,5 pontos acima do estado da arte publicado. E a comparação com SMOTE indica que a qualidade do texto gerado, e não só o balanceamento, explica o ganho.
+Para fechar: um LLM abliterated com few-shot dinâmico conseguiu balancear o MINA-BR com texto diverso e pouco copiado. O BERTimbau treinado nesses dados chegou a 0,915 de macro F1, 17,8 pontos acima do mesmo modelo sem aumento. E a comparação com SMOTE indica que a qualidade do texto gerado, e não só o balanceamento, explica o ganho.
 
 Como próximos passos, queremos testar outros corpora, fazer avaliação humana e explorar outras estratégias de prompt e outros modelos abliterated. O código está no GitHub.
 
-## 14. Obrigado (0:20)
+## 15. Obrigado (0:20)
 
 Obrigado pela atenção. Este trabalho foi financiado em parte pela CAPES. Fico à disposição para perguntas.
 
